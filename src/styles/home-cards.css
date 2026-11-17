@@ -1,0 +1,39 @@
+/* src/styles/home-cards.css
+   چیدمان کارت‌های صفحهٔ اصلی (خودِ کارت از products-page.css می‌آید) */
+
+.hp-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.hp-deals-item { flex: 0 0 clamp(230px, 22vw, 275px); }
+.hp-deals-item .pl-card { height: 100%; }
+
+@media (max-width: 1180px) {
+  .hp-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 820px) {
+  .hp-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+@media (max-width: 520px) {
+  .hp-grid { grid-template-columns: 1fr; }
+}
+
+/* کشیدن ردیف پیشنهادهای ویژه با ماوس */
+.hp-deals-row { cursor: grab; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
+.hp-deals-row img { -webkit-user-drag: none; user-select: none; }
+.hp-deals-row.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+  scroll-snap-type: none !important;
+  scroll-behavior: auto !important;
+}
+
+/* فلش‌های اسلایدر بالای صفحه در موبایل هم نمایش داده شوند */
+@media (max-width: 820px) {
+  .hp-hero-frame .hp-arrow {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    top: 38%;
+    background: rgba(11, 59, 44, .6);
+  }
+  .hp-hero-frame .hp-arrow--prev { right: 10px; }
+  .hp-hero-frame .hp-arrow--next { left: 10px; }
+}
